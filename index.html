@@ -31,7 +31,7 @@
                             </div>
                             <div class="navbar__block-contact-item">
                                 <a class="navbar__block-contact-item-link" href="tel:+79999999999"><img src="./assets/img/ico/phone.svg" alt="Phone">+7 (999) 999-99-99</a>
-                                <a href="tel:+79999999999">Заказать звонок</a>
+                                <a href="#" class="call-modal-trigger">Заказать звонок</a>
                             </div>
                         </div>
                     </div>
@@ -562,6 +562,50 @@
             </div>
         </div>
     </footer>
+    
+    <div class="modal" id="callModal">
+        <div class="modal__overlay">
+            <div class="modal__content">
+                <div class="modal__header">
+                    <h3 class="modal__title">Заказать звонок</h3>
+                    <button class="modal__close" type="button">&times;</button>
+                </div>
+                <div class="modal__body">
+                    <form class="modal__form" id="callForm">
+                        <div class="modal__field">
+                            <label class="modal__label" for="userName">Ваше имя</label>
+                            <input class="modal__input" type="text" id="userName" name="userName" placeholder="Введите ваше имя" required>
+                        </div>
+                        <div class="modal__field">
+                            <label class="modal__label" for="userPhone">Номер телефона</label>
+                            <input class="modal__input" type="tel" id="userPhone" name="userPhone" placeholder="+7 (___) ___-__-__" required>
+                        </div>
+                        <button class="modal__button" type="submit">Заказать звонок</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="modal" id="successModal">
+        <div class="modal__overlay">
+            <div class="modal__content">
+                <div class="modal__header">
+                    <h3 class="modal__title">Заявка отправлена</h3>
+                    <button class="modal__close" type="button">&times;</button>
+                </div>
+                <div class="modal__body">
+                    <div class="modal__success-icon">✓</div>
+                    <div class="modal__success-text">
+                        <h3>Спасибо за заявку!</h3>
+                        <p>Мы свяжемся с вами в ближайшее время для уточнения деталей.</p>
+                    </div>
+                    <button class="modal__button" type="button" onclick="closeModal('successModal')">Понятно</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script>
         const swiper = new Swiper('.products-slider', {
@@ -598,6 +642,150 @@
                     spaceBetween: 20,
                 },
             },
+        });
+    </script>
+    
+    <script>
+        // Модальные окна
+        function openModal(modalId) {
+            const modal = document.getElementById(modalId);
+            modal.classList.add('modal--active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal(modalId) {
+            const modal = document.getElementById(modalId);
+            modal.classList.remove('modal--active');
+            document.body.style.overflow = '';
+        }
+
+        // Открытие модального окна заказа звонка
+        document.addEventListener('DOMContentLoaded', function() {
+            const callTriggers = document.querySelectorAll('.call-modal-trigger');
+            
+            callTriggers.forEach(trigger => {
+                trigger.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    openModal('callModal');
+                });
+            });
+
+            // Закрытие модального окна по клику на overlay или кнопку закрытия
+            document.querySelectorAll('.modal').forEach(modal => {
+                const overlay = modal.querySelector('.modal__overlay');
+                const closeBtn = modal.querySelector('.modal__close');
+                
+                overlay.addEventListener('click', function(e) {
+                    if (e.target === overlay) {
+                        closeModal(modal.id);
+                    }
+                });
+                
+                closeBtn.addEventListener('click', function() {
+                    closeModal(modal.id);
+                });
+            });
+
+            // Закрытие по ESC
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape') {
+                    document.querySelectorAll('.modal--active').forEach(modal => {
+                        closeModal(modal.id);
+                    });
+                }
+            });
+        });
+
+        // Маска для телефона
+        function setPhoneMask() {
+            const phoneInput = document.getElementById('userPhone');
+            
+            phoneInput.addEventListener('input', function(e) {
+                let value = e.target.value.replace(/\D/g, '');
+                
+                if (value.length === 0) {
+                    e.target.value = '';
+                    return;
+                }
+                
+                if (value[0] === '8') {
+                    value = '7' + value.slice(1);
+                }
+                
+                if (value[0] !== '7') {
+                    value = '7' + value;
+                }
+                
+                let formattedValue = '+7';
+                
+                if (value.length > 1) {
+                    formattedValue += ' (' + value.slice(1, 4);
+                }
+                if (value.length >= 5) {
+                    formattedValue += ') ' + value.slice(4, 7);
+                }
+                if (value.length >= 8) {
+                    formattedValue += '-' + value.slice(7, 9);
+                }
+                if (value.length >= 10) {
+                    formattedValue += '-' + value.slice(9, 11);
+                }
+                
+                e.target.value = formattedValue;
+            });
+
+            phoneInput.addEventListener('keydown', function(e) {
+                // Разрешаем только цифры, Backspace, Delete, Tab, Escape, Enter
+                if (e.key === 'Backspace' || e.key === 'Delete' || e.key === 'Tab' || 
+                    e.key === 'Escape' || e.key === 'Enter' || 
+                    (e.key >= '0' && e.key <= '9')) {
+                    return;
+                }
+                e.preventDefault();
+            });
+        }
+
+        // Обработка формы
+        document.addEventListener('DOMContentLoaded', function() {
+            setPhoneMask();
+            
+            const callForm = document.getElementById('callForm');
+            
+            callForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                const formData = new FormData(callForm);
+                const name = formData.get('userName');
+                const phone = formData.get('userPhone');
+                
+                // Проверка заполненности полей
+                if (!name.trim() || !phone.trim()) {
+                    alert('Пожалуйста, заполните все поля');
+                    return;
+                }
+                
+                // Проверка корректности номера телефона
+                const phoneDigits = phone.replace(/\D/g, '');
+                if (phoneDigits.length !== 11) {
+                    alert('Пожалуйста, введите корректный номер телефона');
+                    return;
+                }
+                
+                // Имитация отправки данных
+                const submitBtn = callForm.querySelector('.modal__button');
+                submitBtn.disabled = true;
+                submitBtn.textContent = 'Отправляем...';
+                
+                setTimeout(() => {
+                    closeModal('callModal');
+                    openModal('successModal');
+                    
+                    // Сброс формы
+                    callForm.reset();
+                    submitBtn.disabled = false;
+                    submitBtn.textContent = 'Заказать звонок';
+                }, 1000);
+            });
         });
     </script>
   </body>

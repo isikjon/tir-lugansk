@@ -1270,6 +1270,184 @@
     font-size: 14px;
 }
 
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1000;
+    display: none;
+    
+    &--active {
+        display: flex;
+    }
+    
+    &__overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.5);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 20px;
+    }
+    
+    &__content {
+        background: #ffffff;
+        border-radius: 12px;
+        box-shadow: 0px 10px 40px rgba(0, 0, 0, 0.2);
+        max-width: 400px;
+        width: 100%;
+        position: relative;
+        animation: modalShow 0.3s ease;
+    }
+    
+    &__header {
+        padding: 25px 25px 0 25px;
+        border-bottom: 1px solid #e9ecef;
+        margin-bottom: 0;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+    
+    &__title {
+        font-size: 20px;
+        font-weight: 600;
+        color: #1a1a1a;
+        margin: 0;
+    }
+    
+    &__close {
+        background: none;
+        border: none;
+        font-size: 24px;
+        color: #666666;
+        cursor: pointer;
+        width: 30px;
+        height: 30px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50%;
+        transition: background 0.3s ease;
+        
+        &:hover {
+            background: #f8f9fa;
+            color: #1a1a1a;
+        }
+    }
+    
+    &__body {
+        padding: 25px;
+    }
+    
+    &__form {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
+    
+    &__field {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+    }
+    
+    &__label {
+        font-size: 14px;
+        font-weight: 500;
+        color: #1a1a1a;
+    }
+    
+    &__input {
+        width: 100%;
+        padding: 12px 15px;
+        border: 1px solid #e9ecef;
+        border-radius: 8px;
+        font-size: 16px;
+        transition: border-color 0.3s ease;
+        
+        &:focus {
+            outline: none;
+            border-color: $green;
+            box-shadow: 0 0 0 3px rgba(74, 108, 247, 0.1);
+        }
+        
+        &::placeholder {
+            color: #999999;
+        }
+    }
+    
+    &__button {
+        width: 100%;
+        background: $green;
+        color: #ffffff;
+        border: none;
+        border-radius: 8px;
+        padding: 15px 20px;
+        font-size: 16px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: background 0.3s ease;
+        
+        &:hover {
+            background: darken($green, 10%);
+        }
+        
+        &:disabled {
+            background: #cccccc;
+            cursor: not-allowed;
+        }
+    }
+    
+    &__success-icon {
+        width: 60px;
+        height: 60px;
+        background: $green;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto 20px;
+        color: #ffffff;
+        font-size: 24px;
+    }
+    
+    &__success-text {
+        text-align: center;
+        margin-bottom: 25px;
+        
+        h3 {
+            font-size: 18px;
+            font-weight: 600;
+            color: #1a1a1a;
+            margin-bottom: 10px;
+        }
+        
+        p {
+            font-size: 14px;
+            color: #666666;
+            line-height: 1.5;
+        }
+    }
+}
+
+@keyframes modalShow {
+    from {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
 @media (max-width: 768px) {
     header {
         background-size: cover;
@@ -2507,5 +2685,29 @@
     
     .tech-value {
         font-size: 13px;
+    }
+
+    .modal {
+        &__overlay {
+            padding: 10px;
+        }
+        
+        &__header {
+            padding: 15px 15px 0 15px;
+        }
+        
+        &__title {
+            font-size: 16px;
+        }
+        
+        &__body {
+            padding: 15px;
+        }
+        
+        &__success-icon {
+            width: 50px;
+            height: 50px;
+            font-size: 20px;
+        }
     }
 }
