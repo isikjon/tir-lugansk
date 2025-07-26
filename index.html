@@ -6,9 +6,14 @@
     <title>Главная - Tir Lugansk</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
     <link rel="stylesheet" href="./assets/css/main.css">
+
+    <link rel="apple-touch-icon" sizes="180x180" href="./assets/img/favicon_io/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="./assets/img/favicon_io/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="./assets/img/favicon_io/favicon-16x16.png">
+    <link rel="manifest" href="./assets/img/favicon_io/site.webmanifest">
   </head>
   <body>
-    <header>
+    <header class="header">
         <div class="navbar">
             <div class="container">
                 <di&v class="navbar__content">
@@ -35,10 +40,10 @@
                     <div class="menu__links">
                         <nav>
                             <ul>
-                                <li><a href="#">Главная</a></li>
-                                <li><a href="#">Ассортимент запчастей</a></li>
-                                <li><a href="#">О компании</a></li>
-                                <li><a href="#">Наши контакты</a></li>
+                                <li class="menu__links-active"><a href="./index.html">Главная</a></li>
+                                <li><a href="./catalog.html">Ассортимент запчастей</a></li>
+                                <li><a href="./about.html">О компании</a></li>
+                                <li><a href="./contacts.html">Наши контакты</a></li>
                             </ul>
                         </nav>
                     </div>
@@ -97,8 +102,8 @@
                             <div class="swiper products-slider">
                                 <div class="swiper-wrapper">
                                     <div class="swiper-slide">
-                                        <div class="product-card">
-                                            <div class="product-badge">Хит 2022</div>
+                                        <a href="./product.html" class="product-card">
+                                            <div class="product-badge">-24%</div>
                                             <div class="product-image">
                                                 <img src="./assets/img/product_1.png" alt="1">
                                             </div>
@@ -129,28 +134,28 @@
                                                     </button>
                                                 </div>
                                             </div>
-                                        </div>
+                                        </a>
                                     </div>
                                     <div class="swiper-slide">
-                                        <div class="product-card">
-                                            <div class="product-badge">Хит 2022</div>
+                                        <a href="./product.html" class="product-card">
+                                            <div class="product-badge">-15%</div>
                                             <div class="product-image">
                                                 <img src="./assets/img/product_1.png" alt="1">
                                             </div>
                                             <div class="product-content">
-                                                <h3 class="product-title">Пневмоцилиндр горного тормоза / AUGER</h3>
+                                                <h3 class="product-title">Масляный фильтр для грузовиков / MANN</h3>
                                                 <div class="product-details">
                                                     <div class="product-detail">
                                                         <span class="detail-label">Код:</span>
-                                                        <span class="detail-value">6234262</span>
+                                                        <span class="detail-value">W712/75</span>
                                                     </div>
                                                     <div class="product-detail">
                                                         <span class="detail-label">Каталожный номер:</span>
-                                                        <span class="detail-value">6234262</span>
+                                                        <span class="detail-value">W712/75</span>
                                                     </div>
                                                     <div class="product-detail">
                                                         <span class="detail-label">Производитель:</span>
-                                                        <span class="detail-value">AUGER</span>
+                                                        <span class="detail-value">MANN</span>
                                                     </div>
                                                     <div class="product-detail">
                                                         <span class="detail-label">Применяемость:</span>
@@ -158,34 +163,34 @@
                                                     </div>
                                                 </div>
                                                 <div class="product-footer">
-                                                    <div class="product-price">18 890 ₽</div>
+                                                    <div class="product-price">3 055 ₽</div>
                                                     <button class="product-btn">
                                                         <img src="./assets/img/ico/back.svg" alt="cart">
                                                     </button>
                                                 </div>
                                             </div>
-                                        </div>
+                                        </a>
                                     </div>
                                     <div class="swiper-slide">
-                                        <div class="product-card">
-                                            <div class="product-badge">Хит 2022</div>
+                                        <a href="./product.html" class="product-card">
+                                            <div class="product-badge">-20%</div>
                                             <div class="product-image">
                                                 <img src="./assets/img/product_1.png" alt="1">
                                             </div>
                                             <div class="product-content">
-                                                <h3 class="product-title">Пневмоцилиндр горного тормоза / AUGER</h3>
+                                                <h3 class="product-title">Тормозные колодки / BREMBO</h3>
                                                 <div class="product-details">
                                                     <div class="product-detail">
                                                         <span class="detail-label">Код:</span>
-                                                        <span class="detail-value">6234262</span>
+                                                        <span class="detail-value">09680103961</span>
                                                     </div>
                                                     <div class="product-detail">
                                                         <span class="detail-label">Каталожный номер:</span>
-                                                        <span class="detail-value">6234262</span>
+                                                        <span class="detail-value">09680103961</span>
                                                     </div>
                                                     <div class="product-detail">
                                                         <span class="detail-label">Производитель:</span>
-                                                        <span class="detail-value">AUGER</span>
+                                                        <span class="detail-value">BREMBO</span>
                                                     </div>
                                                     <div class="product-detail">
                                                         <span class="detail-label">Применяемость:</span>
@@ -193,34 +198,34 @@
                                                     </div>
                                                 </div>
                                                 <div class="product-footer">
-                                                    <div class="product-price">18 890 ₽</div>
+                                                    <div class="product-price">4 850 ₽</div>
                                                     <button class="product-btn">
                                                         <img src="./assets/img/ico/back.svg" alt="cart">
                                                     </button>
                                                 </div>
                                             </div>
-                                        </div>
+                                        </a>
                                     </div>
                                     <div class="swiper-slide">
-                                        <div class="product-card">
-                                            <div class="product-badge">Хит 2022</div>
+                                        <a href="./product.html" class="product-card">
+                                            <div class="product-badge">-18%</div>
                                             <div class="product-image">
                                                 <img src="./assets/img/product_1.png" alt="1">
                                             </div>
                                             <div class="product-content">
-                                                <h3 class="product-title">Пневмоцилиндр горного тормоза / AUGER</h3>
+                                                <h3 class="product-title">Амортизатор кабины / SACHS</h3>
                                                 <div class="product-details">
                                                     <div class="product-detail">
                                                         <span class="detail-label">Код:</span>
-                                                        <span class="detail-value">6234262</span>
+                                                        <span class="detail-value">22520</span>
                                                     </div>
                                                     <div class="product-detail">
                                                         <span class="detail-label">Каталожный номер:</span>
-                                                        <span class="detail-value">6234262</span>
+                                                        <span class="detail-value">22520</span>
                                                     </div>
                                                     <div class="product-detail">
                                                         <span class="detail-label">Производитель:</span>
-                                                        <span class="detail-value">AUGER</span>
+                                                        <span class="detail-value">SACHS</span>
                                                     </div>
                                                     <div class="product-detail">
                                                         <span class="detail-label">Применяемость:</span>
@@ -228,34 +233,34 @@
                                                     </div>
                                                 </div>
                                                 <div class="product-footer">
-                                                    <div class="product-price">18 890 ₽</div>
+                                                    <div class="product-price">5 580 ₽</div>
                                                     <button class="product-btn">
                                                         <img src="./assets/img/ico/back.svg" alt="cart">
                                                     </button>
                                                 </div>
                                             </div>
-                                        </div>
+                                        </a>
                                     </div>
                                     <div class="swiper-slide">
-                                        <div class="product-card">
-                                            <div class="product-badge">Хит 2022</div>
+                                        <a href="./product.html" class="product-card">
+                                            <div class="product-badge">-25%</div>
                                             <div class="product-image">
                                                 <img src="./assets/img/product_1.png" alt="1">
                                             </div>
                                             <div class="product-content">
-                                                <h3 class="product-title">Пневмоцилиндр горного тормоза / AUGER</h3>
+                                                <h3 class="product-title">Комплект сцепления / VOLVO</h3>
                                                 <div class="product-details">
                                                     <div class="product-detail">
                                                         <span class="detail-label">Код:</span>
-                                                        <span class="detail-value">6234262</span>
+                                                        <span class="detail-value">3401000915</span>
                                                     </div>
                                                     <div class="product-detail">
                                                         <span class="detail-label">Каталожный номер:</span>
-                                                        <span class="detail-value">6234262</span>
+                                                        <span class="detail-value">3401000915</span>
                                                     </div>
                                                     <div class="product-detail">
                                                         <span class="detail-label">Производитель:</span>
-                                                        <span class="detail-value">AUGER</span>
+                                                        <span class="detail-value">VOLVO</span>
                                                     </div>
                                                     <div class="product-detail">
                                                         <span class="detail-label">Применяемость:</span>
@@ -263,13 +268,13 @@
                                                     </div>
                                                 </div>
                                                 <div class="product-footer">
-                                                    <div class="product-price">18 890 ₽</div>
+                                                    <div class="product-price">28 900 ₽</div>
                                                     <button class="product-btn">
                                                         <img src="./assets/img/ico/back.svg" alt="cart">
                                                     </button>
                                                 </div>
                                             </div>
-                                        </div>
+                                        </a>
                                     </div>
                                 </div>
                                 <div class="swiper-pagination"></div>
@@ -515,7 +520,7 @@
                 <div class="footer__block">
                     <div class="footer__block-brand">
                         <a href="./index.html">
-                            <img src="./assets/img/logo.png" alt="MD-TRUCK">
+                            <img src="./assets/img/logo_footer.png" alt="TIR-LUGANSK">
                         </a>
                         <p>Запчасти для грузовиков<br>в Ростове-на-Дону</p>
                     </div>
@@ -525,10 +530,10 @@
                         <h3>Ссылки</h3>
                         <nav>
                             <ul>
-                                <li><a href="#">Главная</a></li>
-                                <li><a href="#">Ассортимент</a></li>
-                                <li><a href="#">О компании</a></li>
-                                <li><a href="#">Наши контакты</a></li>
+                                <li><a href="./index.html">Главная</a></li>
+                                <li><a href="./catalog.html">Ассортимент</a></li>
+                                <li><a href="./about.html">О компании</a></li>
+                                <li><a href="./contacts.html">Наши контакты</a></li>
                             </ul>
                         </nav>
                     </div>
@@ -553,7 +558,7 @@
                 </div>
             </div>
             <div class="footer__copy">
-                <p>© 2022 md-truck.ru</p>
+                <p>© 2025 tir-lugansk.ru</p>
             </div>
         </div>
     </footer>
